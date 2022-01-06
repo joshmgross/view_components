@@ -102,6 +102,7 @@ namespace :docs do
 
     args_for_components = []
     classes_found_in_examples = []
+    classes_in_component_examples = {}
 
     errors = []
 
@@ -110,6 +111,8 @@ namespace :docs do
 
     components.sort_by(&:name).each do |component|
       documentation = registry.get(component.name)
+
+      classes_in_component_examples[component.name] = []
 
       data = docs_metadata(component)
 
@@ -247,6 +250,7 @@ namespace :docs do
           html = view_context.render(inline: code)
           html.scan(/class="([^"]*)"/) do |classnames|
             classes_found_in_examples.concat(classnames[0].split.reject { |c| c.starts_with?("octicon", "js", "my-") }.map { ".#{_1}" })
+            classes_in_component_examples[component.name].concat(classnames[0].split.reject { |c| c.starts_with?("octicon", "js", "my-") }.map { ".#{_1}" })
           end
           f.puts("<Example src=\"#{html.tr('"', "\'").delete("\n")}\" />")
           f.puts
@@ -255,6 +259,8 @@ namespace :docs do
           f.puts("```")
         end
       end
+
+      classes_in_component_examples[component.name].sort!.uniq!
     end
 
     unless errors.empty?
@@ -271,6 +277,10 @@ namespace :docs do
 
     File.open("static/classes.yml", "w") do |f|
       f.puts YAML.dump(classes_found_in_examples.sort.uniq)
+    end
+
+    File.open("static/component-classes.yml", "w") do |f|
+      f.puts YAML.dump(classes_in_component_examples)
     end
 
     File.open("static/arguments.yml", "w") do |f|
