@@ -102,9 +102,16 @@ namespace :docs do
 
     args_for_components = []
     classes_found_in_examples = []
-    classes_in_component_examples = {}
+    all_component_utility_classes = {}
 
     errors = []
+
+    css_utility_classes =
+    JSON.parse(
+      File.read(
+        File.expand_path(File.join(*%w[.. .. node_modules @primer css dist stats utilities.json]), __dir__)
+      )
+    )["selectors"]["values"]
 
     # Deletes docs before regenerating them, guaranteeing that we don't keep stale docs.
     FileUtils.rm_rf(Dir.glob("docs/content/components/**/*.md"))
@@ -112,7 +119,7 @@ namespace :docs do
     components.sort_by(&:name).each do |component|
       documentation = registry.get(component.name)
 
-      classes_in_component_examples[component.name] = []
+      component_classes = []
 
       data = docs_metadata(component)
 
@@ -249,8 +256,9 @@ namespace :docs do
           f.puts
           html = view_context.render(inline: code)
           html.scan(/class="([^"]*)"/) do |classnames|
-            classes_found_in_examples.concat(classnames[0].split.reject { |c| c.starts_with?("octicon", "js", "my-") }.map { ".#{_1}" })
-            classes_in_component_examples[component.name].concat(classnames[0].split.reject { |c| c.starts_with?("octicon", "js", "my-") }.map { ".#{_1}" })
+            classes_in_example = classnames[0].split.reject { |c| c.starts_with?("octicon", "js", "my-") }.map { ".#{_1}" }
+            classes_found_in_examples.concat(classes_in_example)
+            component_classes.concat(classes_in_example)
           end
           f.puts("<Example src=\"#{html.tr('"', "\'").delete("\n")}\" />")
           f.puts
@@ -260,7 +268,10 @@ namespace :docs do
         end
       end
 
-      classes_in_component_examples[component.name].sort!.uniq!
+      component_utility_classes = (component_classes.uniq.sort & css_utility_classes)
+      if component_utility_classes.any?
+        all_component_utility_classes[component.name] = component_utility_classes
+      end
     end
 
     unless errors.empty?
@@ -279,8 +290,8 @@ namespace :docs do
       f.puts YAML.dump(classes_found_in_examples.sort.uniq)
     end
 
-    File.open("static/component-classes.yml", "w") do |f|
-      f.puts YAML.dump(classes_in_component_examples)
+    File.open("static/utility-classes.yml", "w") do |f|
+      f.puts YAML.dump(all_component_utility_classes)
     end
 
     File.open("static/arguments.yml", "w") do |f|
