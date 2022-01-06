@@ -1,116 +1,170 @@
 ---
-Primer::Alpha::ButtonMarketing:
+all_classes:
+- ".anim-rotate"
+- ".border"
+- ".border-bottom-0"
+- ".circle"
+- ".color-bg-accent-emphasis"
+- ".color-bg-danger-emphasis"
 - ".color-bg-emphasis"
-- ".mr-2"
-Primer::Alpha::Layout:
-- ".border"
-- ".mt-5"
-Primer::Alpha::TabNav:
-- ".border"
+- ".color-bg-subtle"
+- ".color-bg-success-emphasis"
 - ".color-border-accent-emphasis"
+- ".color-fg-danger"
+- ".color-fg-on-emphasis"
+- ".color-fg-success"
+- ".color-shadow-large"
 - ".d-flex"
+- ".d-inline-block"
 - ".d-inline-flex"
 - ".flex-1"
-- ".float-right"
-Primer::Alpha::TabPanels:
-- ".d-inline-flex"
-Primer::Alpha::UnderlineNav:
-- ".border"
-- ".color-border-accent-emphasis"
-- ".d-inline-flex"
-- ".list-style-none"
-Primer::Alpha::UnderlinePanels:
-- ".d-inline-flex"
-- ".list-style-none"
-Primer::Beta::AutoComplete:
-- ".position-relative"
-Primer::Beta::Avatar:
-- ".circle"
-- ".lh-0"
-Primer::Beta::AvatarStack:
-- ".circle"
-Primer::Beta::Blankslate:
-- ".anim-rotate"
-- ".h2"
-- ".mb-1"
-- ".mb-3"
-- ".mt-3"
-- ".mt-5"
-- ".p-3"
-Primer::Beta::Text:
-- ".color-fg-danger"
-- ".text-bold"
-Primer::Beta::Truncate:
-- ".text-bold"
-- ".text-normal"
-Primer::BoxComponent:
-- ".color-bg-subtle"
-- ".p-3"
-Primer::ButtonComponent:
-- ".ml-2"
-- ".mr-2"
-- ".mr-n1"
-Primer::ClipboardCopy:
-- ".color-fg-success"
-Primer::Dropdown:
-- ".d-inline-block"
-- ".ml-2"
-- ".mr-n1"
-Primer::DropdownMenuComponent:
-- ".position-relative"
-Primer::FlexComponent:
-- ".border"
-- ".color-bg-subtle"
-- ".d-flex"
+- ".flex-auto"
 - ".flex-column"
 - ".flex-items-end"
 - ".flex-justify-center"
-- ".p-5"
-Primer::FlexItemComponent:
-- ".d-flex"
-- ".flex-auto"
-Primer::HellipButton:
-- ".p-1"
-Primer::HiddenTextExpander:
-- ".p-1"
-Primer::IconButton:
-- ".pr-2"
-Primer::ImageCrop:
-- ".anim-rotate"
-- ".flex-1"
-Primer::LayoutComponent:
-- ".d-flex"
 - ".flex-shrink-0"
-Primer::LinkComponent:
-- ".no-underline"
-Primer::Navigation::TabComponent:
-- ".d-inline-flex"
-Primer::OcticonSymbolsComponent:
-- ".color-fg-danger"
-- ".color-fg-success"
-Primer::PopoverComponent:
-- ".color-shadow-large"
+- ".float-right"
+- ".h2"
 - ".left-0"
-- ".mb-2"
-- ".mt-2"
-- ".mx-auto"
-- ".p-4"
-- ".position-relative"
-- ".right-0"
-- ".text-left"
-Primer::ProgressBarComponent:
-- ".color-bg-accent-emphasis"
-- ".color-bg-danger-emphasis"
-- ".color-bg-success-emphasis"
-Primer::SpinnerComponent:
-- ".anim-rotate"
-Primer::SubheadComponent:
-- ".border-bottom-0"
+- ".lh-0"
+- ".list-style-none"
 - ".mb-0"
-Primer::TimeAgoComponent:
+- ".mb-1"
+- ".mb-2"
+- ".mb-3"
+- ".ml-2"
+- ".mr-2"
+- ".mr-n1"
+- ".mt-2"
+- ".mt-3"
+- ".mt-5"
+- ".mx-auto"
+- ".no-underline"
 - ".no-wrap"
-Primer::TimelineItemComponent:
-- ".color-bg-success-emphasis"
-- ".color-fg-on-emphasis"
-Primer::Tooltip:
+- ".p-1"
+- ".p-3"
+- ".p-4"
+- ".p-5"
+- ".position-relative"
+- ".pr-2"
 - ".pt-5"
+- ".right-0"
+- ".text-bold"
+- ".text-left"
+- ".text-normal"
+classes_by_component:
+  Primer::Alpha::ButtonMarketing:
+  - ".color-bg-emphasis"
+  - ".mr-2"
+  Primer::Alpha::Layout:
+  - ".border"
+  - ".mt-5"
+  Primer::Alpha::TabNav:
+  - ".border"
+  - ".color-border-accent-emphasis"
+  - ".d-flex"
+  - ".d-inline-flex"
+  - ".flex-1"
+  - ".float-right"
+  Primer::Alpha::TabPanels:
+  - ".d-inline-flex"
+  Primer::Alpha::UnderlineNav:
+  - ".border"
+  - ".color-border-accent-emphasis"
+  - ".d-inline-flex"
+  - ".list-style-none"
+  Primer::Alpha::UnderlinePanels:
+  - ".d-inline-flex"
+  - ".list-style-none"
+  Primer::Beta::AutoComplete:
+  - ".position-relative"
+  Primer::Beta::Avatar:
+  - ".circle"
+  - ".lh-0"
+  Primer::Beta::AvatarStack:
+  - ".circle"
+  Primer::Beta::Blankslate:
+  - ".anim-rotate"
+  - ".h2"
+  - ".mb-1"
+  - ".mb-3"
+  - ".mt-3"
+  - ".mt-5"
+  - ".p-3"
+  Primer::Beta::Text:
+  - ".color-fg-danger"
+  - ".text-bold"
+  Primer::Beta::Truncate:
+  - ".text-bold"
+  - ".text-normal"
+  Primer::BoxComponent:
+  - ".color-bg-subtle"
+  - ".p-3"
+  Primer::ButtonComponent:
+  - ".ml-2"
+  - ".mr-2"
+  - ".mr-n1"
+  Primer::ClipboardCopy:
+  - ".color-fg-success"
+  Primer::Dropdown:
+  - ".d-inline-block"
+  - ".ml-2"
+  - ".mr-n1"
+  Primer::DropdownMenuComponent:
+  - ".position-relative"
+  Primer::FlexComponent:
+  - ".border"
+  - ".color-bg-subtle"
+  - ".d-flex"
+  - ".flex-column"
+  - ".flex-items-end"
+  - ".flex-justify-center"
+  - ".p-5"
+  Primer::FlexItemComponent:
+  - ".d-flex"
+  - ".flex-auto"
+  Primer::HellipButton:
+  - ".p-1"
+  Primer::HiddenTextExpander:
+  - ".p-1"
+  Primer::IconButton:
+  - ".pr-2"
+  Primer::ImageCrop:
+  - ".anim-rotate"
+  - ".flex-1"
+  Primer::LayoutComponent:
+  - ".d-flex"
+  - ".flex-shrink-0"
+  Primer::LinkComponent:
+  - ".no-underline"
+  Primer::Navigation::TabComponent:
+  - ".d-inline-flex"
+  Primer::OcticonSymbolsComponent:
+  - ".color-fg-danger"
+  - ".color-fg-success"
+  Primer::PopoverComponent:
+  - ".color-shadow-large"
+  - ".left-0"
+  - ".mb-2"
+  - ".mt-2"
+  - ".mx-auto"
+  - ".p-4"
+  - ".position-relative"
+  - ".right-0"
+  - ".text-left"
+  Primer::ProgressBarComponent:
+  - ".color-bg-accent-emphasis"
+  - ".color-bg-danger-emphasis"
+  - ".color-bg-success-emphasis"
+  Primer::SpinnerComponent:
+  - ".anim-rotate"
+  Primer::SubheadComponent:
+  - ".border-bottom-0"
+  - ".mb-0"
+  Primer::TimeAgoComponent:
+  - ".no-wrap"
+  Primer::TimelineItemComponent:
+  - ".color-bg-success-emphasis"
+  - ".color-fg-on-emphasis"
+  Primer::Tooltip:
+  - ".pt-5"

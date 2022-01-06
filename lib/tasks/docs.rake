@@ -291,7 +291,10 @@ namespace :docs do
     end
 
     File.open("static/utility-classes.yml", "w") do |f|
-      f.puts YAML.dump(all_component_utility_classes)
+      data = {}
+      data["all_classes"] = classes_found_in_examples.sort.uniq & css_utility_classes
+      data["classes_by_component"] = all_component_utility_classes
+      f.puts YAML.dump(data)
     end
 
     File.open("static/arguments.yml", "w") do |f|
