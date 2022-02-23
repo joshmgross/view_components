@@ -31,7 +31,7 @@ module Primer
     # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
     renders_one :heading, lambda { |tag: DEFAULT_HEADING_TAG, **system_arguments|
       system_arguments[:tag] = tag
-      system_arguments[:mb] ||= 2
+      system_arguments[:classes] = class_names(system_arguments[:classes], "Popover-heading")
 
       Primer::HeadingComponent.new(**system_arguments)
     }
@@ -45,15 +45,14 @@ module Primer
       @body_arguments = system_arguments
       @body_arguments[:classes] = class_names(
         @body_arguments[:classes],
-        "Popover-message Box",
+        "Popover-message Popover-body",
         CARET_MAPPINGS[fetch_or_fallback(CARET_MAPPINGS.keys, caret, CARET_DEFAULT)],
         "Popover-message--large" => large
       )
-      @body_arguments[:p] ||= 4
+
+      # TODO: Ideally we should use the Primer CSS Popover-body-caret-margin classes, but that will be a non trivial breaking change as existing usages of this component calculate the position in different ways.
       @body_arguments[:mt] ||= 2
       @body_arguments[:mx] ||= :auto
-      @body_arguments[:text_align] ||= :left
-      @body_arguments[:box_shadow] ||= :large
 
       Primer::Content.new
     }
