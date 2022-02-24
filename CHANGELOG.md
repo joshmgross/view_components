@@ -54,6 +54,10 @@ The category for changes related to documentation, testing and tooling. Also, fo
 
   _Jon Rohan_
 
+- Default to an `<h2>` tag on Subhead heading.
+
+    _Hector Garcia_
+
 ## 0.0.68
 
 ### Updates
