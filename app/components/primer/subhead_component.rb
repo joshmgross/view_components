@@ -8,12 +8,12 @@ module Primer
   # - Use the actions slot to render a related action to the right of the heading. Use <%= link_to_component(Primer::ButtonComponent) %> or <%= link_to_component(Primer::LinkComponent) %>.
   #
   # @accessibility
-  #   The `:heading` slot defaults to rendering a `<div>`. Update the tag to a heading element with the appropriate level to improve page navigation for assistive technologies.
+  #   The `:heading` slot defaults to rendering an `<h2>`. Update the tag to a heading element with the appropriate level to improve page navigation for assistive technologies.
   #   <%= link_to_heading_practices %>
   class SubheadComponent < Primer::Component
     status :beta
 
-    DEFAULT_HEADING_TAG = :div
+    DEFAULT_HEADING_TAG = :h2
     HEADING_TAG_OPTIONS = [DEFAULT_HEADING_TAG, :h1, :h2, :h3, :h4, :h5, :h6].freeze
 
     # The heading

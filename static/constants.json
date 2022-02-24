@@ -346,7 +346,8 @@
     }
   },
   "Primer::Dropdown": {
-    "Menu": "Primer::Dropdown::Menu"
+    "Menu": "Primer::Dropdown::Menu",
+    "MenuTest": "Primer::Dropdown::MenuTest"
   },
   "Primer::Dropdown::Menu": {
     "AS_DEFAULT": "default",
@@ -729,9 +730,9 @@
     ]
   },
   "Primer::SubheadComponent": {
-    "DEFAULT_HEADING_TAG": "div",
+    "DEFAULT_HEADING_TAG": "h2",
     "HEADING_TAG_OPTIONS": [
-      "div",
+      "h2",
       "h1",
       "h2",
       "h3",
