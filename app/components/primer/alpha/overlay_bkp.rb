@@ -5,7 +5,7 @@ require "securerandom"
 module Primer
   module Alpha
     # An overlay is a flexible floating surface, used to display transient content such as menus, selection options, dialogs, and more.
-    class Overlay < Primer::Component
+    class OverlayBkp < Primer::Component
       status :alpha
 
       DEFAULT_VARIANT_REGULAR = "Overlay-backdrop--center"
