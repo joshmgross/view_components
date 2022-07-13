@@ -1,7 +1,10 @@
-import type {AnchorAlignment, AnchorSide} from '@primer/behaviors'
-import {getAnchoredPosition} from '@primer/behaviors'
+import {AnchorAlignment, AnchorSide, getAnchoredPosition} from '@primer/behaviors'
 
-// <anchored-overlay open data-anchor-align="start" data-anchor-side="outside-bottom">
+
+/** <anchored-overlay open data-anchor-align="start" data-anchor-side="outside-bottom">
+ *
+ * </anchored
+ */
 
 class AnchoredOverlayElement extends HTMLElement {
   #abortController: AbortController

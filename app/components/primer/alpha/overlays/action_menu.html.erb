@@ -1,1 +1,8 @@
-<div>action menu</div>
+
+<%= render(Primer::Alpha::Overlays::OverlayBase.new(
+  open: true
+)) do |overlay| %>
+  <% overlay.overlay_content do %>
+    <div>action menu</div>
+  <% end %>
+<% end %>

@@ -2,21 +2,39 @@
 
 require "securerandom"
 
+# narrow (- 768)
+# regular (768 - 1440)
+# wide (1440 - )
+
+# prop: { regular: :medium }
+#  prop: narrow: default
+#  prop: regular: :medium
+#  prop: wide: :medium
+
+# <div class="Prop-default-whenNarrow Prop-medium-whenRegular Prop-medium-whenWide"></div>
+
 module Primer
   module Alpha
     module Overlays
       # An overlay is a flexible floating surface, used to display transient content such as menus, selection options, dialogs, and more.
       class OverlayBase < Primer::Component
+        include Primer::Alpha::Overlays::StyleMapHelper
+
         status :alpha
 
         renders_one :overlay_content
 
         STYLE_MAPPING = {
           backdrop: {
-            visible: "Overlay-backdrop--visible",
-            transparent: "Overlay-backdrop--transparent",
-            none: "",
-            DEFAULT: :visible
+            narrow: {
+              visible: "Overlay-backdrop--visible",
+              transparent: "Overlay-backdrop--transparent",
+              none: "",
+              DEFAULT: :visible
+            },
+            regular: {
+
+            }
           },
 
           motion: {
@@ -97,31 +115,46 @@ module Primer
           @open = open
 
           @classes = {
-            backdrop: get_mapped_style(:backdrop, backdrop),
-            motion: get_mapped_style(:motion, motion),
-            width: get_mapped_style(:width, width),
-            height: get_mapped_style(:height, height)
+            backdrop: get_style_map(STYLE_MAPPING, :backdrop, backdrop),
+            motion: get_style_map(STYLE_MAPPING, :motion, motion),
+            width: get_style_map(STYLE_MAPPING, :width, width),
+            height: get_style_map(STYLE_MAPPING, :height, height)
           }
-        end
-
-        def display_backdrop?
-          @backdrop != :none
         end
 
         def open?
           @open
         end
 
-        def get_mapped_style(property, value)
-          "" unless map.key?(property)
+        # def get_style(property, value)
+        #   get_mapped_style(STYLE_MAPPING, property, value)
+        # end
 
-          if map.key?(value)
-            map[value]
-          else
-            map[STYLE_MAPPING[property][:DEFAULT]]
-          end
-        end
+        # def get_mapped_style(map, property, value)
+        #   if map.key?(property)
+        #     current_map = map[property]
+        #     case current_map
+        #     when Hash
+        #       get_mapped_style
+        #     when Hash
+        #       class_name.each do |key, val|
+        #         classes << key if val
+        #       end
+        #   end
+        #   current_map = map[property]
+
+
+        #   map = STYLE_MAPPING[property]
+        #   if map.key?(value)
+        #     map[value]
+        #   else
+        #     map[map[:DEFAULT]]
+        #   end
+        # end
       end
     end
   end
 end
+
+
+#
