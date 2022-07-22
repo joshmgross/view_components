@@ -1,0 +1,8 @@
+<%= show_button %>
+<div class="Overlay--hidden Overlay-backdrop--center Overlay-backdrop--full-whenNarrow" data-modal-dialog-overlay>
+  <%= render Primer::BaseComponent.new(**@system_arguments) do %>
+    <%= header %>
+    <%= body %>
+    <%= footer %>
+  <% end %>
+</div>
