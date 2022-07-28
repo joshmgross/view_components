@@ -47,7 +47,7 @@ module Primer
       # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
       renders_one :header, lambda { |hide_divider: false, **system_arguments|
         if @subtitle.present?
-          subtitle_id = "#{id}-description"
+          subtitle_id = "#{@id}-description"
         end
         Primer::Alpha::Dialog::Header.new(
           title: @title,
@@ -114,13 +114,13 @@ module Primer
           system_arguments[:classes]
         )
 
-        @subtitle = subtitle
-        if subtitle.present?
-          @system_arguments[:aria].describedby ||= @description
-        end
-        
         @id = id.to_s
         @title = title
+
+        @subtitle = subtitle
+        if subtitle.present?
+          @system_arguments[:aria].describedby ||= "#{@id}-description"
+        end
       end
     end
   end
