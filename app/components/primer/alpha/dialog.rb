@@ -46,13 +46,10 @@ module Primer
       # @param hide_divider [Boolean] If true the visual dividing line between the header and body will be hidden
       # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
       renders_one :header, lambda { |hide_divider: false, **system_arguments|
-        if @subtitle.present?
-          subtitle_id = "#{@id}-description"
-        end
         Primer::Alpha::Dialog::Header.new(
           title: @title,
           subtitle: @subtitle,
-          subtitle_id: subtitle_id,
+          subtitle_id: "#{@id}-description" if @subtitle.present?,
           hide_divider: hide_divider,
           **system_arguments
         )
